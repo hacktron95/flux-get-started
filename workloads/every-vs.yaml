@@ -1,0 +1,15 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: every
+spec:
+  gateways:
+    - every-gateway.default.svc.cluster.local
+  hosts:
+    - every.worker.osama.vaseinfra.net
+  http:
+    - route:
+        - destination:
+            host: every.default.svc.cluster.local
+            port:
+              number: 4000
