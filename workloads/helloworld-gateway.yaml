@@ -1,0 +1,24 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: helloworld-gateway
+  namespace: demo
+spec:
+  selector:
+    istio: ingressgateway # use istio default controller
+  servers:
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - hello.worker.osama.vaseinfra.net
+    - port:
+        number: 443
+        name: https-hello
+        protocol: HTTPS
+      hosts:
+        - "hello.worker.osama.vaseinfra.net"
+      tls:
+        mode: SIMPLE
+        credentialName: "hello-secret"
