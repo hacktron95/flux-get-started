@@ -26,18 +26,18 @@ spec:
     spec:
       serviceAccountName: default
       containers:
-        - name: every
-          image: vase/every-dashboard:staging
-          resources:
-            requests:
-              cpu: 250m
-              memory: "750Mi"
-            limits:
-              cpu: 500m
-              memory: "1.5G"
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 4000
-              name: every
+      - name: every
+        image: vase/every-dashboard:staging-9d82df9
+        resources:
+          requests:
+            cpu: 250m
+            memory: "750Mi"
+          limits:
+            cpu: 500m
+            memory: "1.5G"
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4000
+          name: every
       imagePullSecrets:
-        - name: regcred
+      - name: regcred
