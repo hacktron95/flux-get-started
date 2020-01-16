@@ -27,7 +27,7 @@ spec:
       serviceAccountName: default
       containers:
       - name: every
-        image: vase/every-dashboard:staging-335177d
+        image: vase/every-dashboard:staging-9d82df9
         resources:
           requests:
             cpu: 250m
