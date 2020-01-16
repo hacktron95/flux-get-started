@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: every-deployment
+  name: every
   labels:
     app: every
   annotations:
@@ -26,18 +26,18 @@ spec:
     spec:
       serviceAccountName: default
       containers:
-      - name: every
-        image: vase/every-dashboard:staging-335177d
-        resources:
-          requests:
-            cpu: 250m
-            memory: "750Mi"
-          limits:
-            cpu: 500m
-            memory: "1.5G"
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 4000
-          name: every
+        - name: every
+          image: vase/every-dashboard:staging-335177d
+          resources:
+            requests:
+              cpu: 250m
+              memory: "750Mi"
+            limits:
+              cpu: 500m
+              memory: "1.5G"
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 4000
+              name: every
       imagePullSecrets:
-      - name: regcred
+        - name: regcred
